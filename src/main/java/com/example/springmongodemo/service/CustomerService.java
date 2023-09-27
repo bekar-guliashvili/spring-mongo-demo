@@ -35,14 +35,16 @@ public class CustomerService {
     public void deleteCustomer(String id){
         repository.deleteById(id);
     }
-
+    public List<Customer> getAllCustomers(){
+        return repository.findAll();
+    }
 
     public List<Customer> getCustomersBetweenAges(Integer minAge, Integer maxAge){
         return repository.findCustomersByAgeBetween(minAge, maxAge);
     }
 
-    public List<Customer> getCustomersByLastNameStartsWith(Integer minAge, Integer maxAge){
-        return repository.findCustomersByAgeBetween(minAge, maxAge);
+    public List<Customer> getCustomersByLastNameStartsWith(String name){
+        return repository.findCustomersByLastNameStartingWith(name);
     }
 
 
